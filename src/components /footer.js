@@ -7,7 +7,7 @@ class Footer extends React.Component{
       <>
       
       <footer>
-        
+      Copyright &copy; 2022 by Amani AL-Zoubi
       </footer>
       </>
     )
