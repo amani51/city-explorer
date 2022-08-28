@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Ratio from 'react-bootstrap/Ratio';
 import axios from "axios";
 class CityForm extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class CityForm extends React.Component {
       latitude: "",
       longitude: "",
       errorFlag: false,
-      mapFlag:false
+      mapFlag: false,
     };
   }
   getData = async (event) => {
@@ -25,19 +26,17 @@ class CityForm extends React.Component {
         displayName: responseData.data[0].display_name,
         latitude: responseData.data[0].lat,
         longitude: responseData.data[0].lon,
-        mapFlag:true
+        errorFlag: false,
+        mapFlag: true,
       });
     } catch {
       this.setState({
         errorFlag: true,
-        mapFlag:false
-
+        mapFlag: false,
       });
     }
   };
-  // <Form.Control.Feedback type="invalid">
-  // Please provide a valid city.
-  // </Form.Control.Feedback>
+
   render() {
     return (
       <>
@@ -49,8 +48,8 @@ class CityForm extends React.Component {
               placeholder="Enter a location"
             />
             <Form.Control.Feedback type="invalid">
-            Please provide a valid city.
-          </Form.Control.Feedback>
+              Please provide a valid city.
+            </Form.Control.Feedback>
           </Form.Group>
           <Button variant="primary" type="submit">
             Explore!
@@ -60,11 +59,17 @@ class CityForm extends React.Component {
           <p>display_name: {this.state.displayName}</p>
           <p>latitude: {this.state.latitude}</p>
           <p>longitude: {this.state.longitude}</p>
-
-          {this.state.errorFlag && <p>Location is not available! </p>}
-          {this.state.mapFlag && <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.7aedc85ff3620b0d3b6865ccab5efd25&center=${this.state.latitude},${this.state.longitude}`}></img>}
-
+          {/* {this.state.mapFlag && <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.7aedc85ff3620b0d3b6865ccab5efd25&center=${this.state.latitude},${this.state.longitude}`}></img>} */}
+         
+          {this.state.mapFlag &&<div style={{ width: 660, height: "auto" }}>
+            <Ratio aspectRatio="16x9">
+              <img
+                src={`https://maps.locationiq.com/v3/staticmap?key=pk.7aedc85ff3620b0d3b6865ccab5efd25&center=${this.state.latitude},${this.state.longitude}`}
+              ></img>
+            </Ratio>
+          </div>}
         </div>
+        {this.state.errorFlag && <p>Location is not available! </p>}
       </>
     );
   }
