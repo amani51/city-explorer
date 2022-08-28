@@ -58,9 +58,7 @@ class CityForm extends React.Component {
         <div>
           <p>display_name: {this.state.displayName}</p>
           <p>latitude: {this.state.latitude}</p>
-          <p>longitude: {this.state.longitude}</p>
-          {/* {this.state.mapFlag && <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.7aedc85ff3620b0d3b6865ccab5efd25&center=${this.state.latitude},${this.state.longitude}`}></img>} */}
-         
+          <p>longitude: {this.state.longitude}</p>         
           {this.state.mapFlag &&<div style={{ width: 660, height: "auto" }}>
             <Ratio aspectRatio="16x9">
               <img

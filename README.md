@@ -15,7 +15,6 @@ this app has been created using React.js
 
 ## Change Log
 
-
 ## Credit and Collaborations
 
  ## Time Estimates
@@ -54,4 +53,3 @@ this app has been created using React.js
     Finish time: 6:00 pm
 
     Actual time needed to complete: 30 min
-
