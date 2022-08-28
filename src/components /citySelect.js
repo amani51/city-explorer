@@ -41,7 +41,7 @@ class CityForm extends React.Component {
     return (
       <>
         <Form onSubmit={this.getData}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasicEmail" style={{width:"30%",display:"flex",justifyContent:"center","margin-top":"1rem"}}>
             <Form.Control
               type="text"
               name="city"
