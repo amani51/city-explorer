@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Ratio from 'react-bootstrap/Ratio';
+import Ratio from "react-bootstrap/Ratio";
 import axios from "axios";
+import Weather from "./weather";
 class CityForm extends React.Component {
   constructor(props) {
     super(props);
@@ -29,19 +30,30 @@ class CityForm extends React.Component {
         errorFlag: false,
         mapFlag: true,
       });
+      // console.log(this.state.displayName)
     } catch {
       this.setState({
         errorFlag: true,
         mapFlag: false,
       });
     }
+     console.log(this.state.displayName)
   };
 
   render() {
     return (
       <>
         <Form onSubmit={this.getData}>
-          <Form.Group className="mb-3" controlId="formBasicEmail" style={{width:"30%",display:"flex",justifyContent:"center","margin-top":"1rem"}}>
+          <Form.Group
+            className="mb-3"
+            controlId="formBasicEmail"
+            style={{
+              width: "30%",
+              display: "flex",
+              justifyContent: "center",
+              "margin-top": "1rem",
+            }}
+          >
             <Form.Control
               type="text"
               name="city"
@@ -58,16 +70,19 @@ class CityForm extends React.Component {
         <div>
           <p>display_name: {this.state.displayName}</p>
           <p>latitude: {this.state.latitude}</p>
-          <p>longitude: {this.state.longitude}</p>         
-          {this.state.mapFlag &&<div style={{ width: 660, height: "auto" }}>
-            <Ratio aspectRatio="16x9">
-              <img
-                src={`https://maps.locationiq.com/v3/staticmap?key=pk.7aedc85ff3620b0d3b6865ccab5efd25&center=${this.state.latitude},${this.state.longitude}`}
-              ></img>
-            </Ratio>
-          </div>}
+          <p>longitude: {this.state.longitude}</p>
+          {this.state.mapFlag && (
+            <div style={{ width: 660, height: "auto" }}>
+              <Ratio aspectRatio="16x9">
+                <img
+                  src={`https://maps.locationiq.com/v3/staticmap?key=pk.7aedc85ff3620b0d3b6865ccab5efd25&center=${this.state.latitude},${this.state.longitude}`}
+                ></img>
+              </Ratio>
+            </div>
+          )}
         </div>
         {this.state.errorFlag && <p>Location is not available! </p>}
+        <Weather city_name={this.state.displayName} lat={this.state.latitude} lot={this.state.longitude} />
       </>
     );
   }
