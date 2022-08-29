@@ -30,9 +30,6 @@ class Weather extends React.Component {
     return (
       <>
         <h2>Weather {this.requestDate}</h2>
-        {/* <p>{this.state.day}</p> */}
-        {/* <p>{this.state.day2}</p>
-        <p>{this.state.day3}</p> */}
         <Button variant="primary" type="submit" onClick={this.requestDate}>
           weather
         </Button>
