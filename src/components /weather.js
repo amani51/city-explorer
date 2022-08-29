@@ -10,7 +10,6 @@ class Weather extends React.Component {
     };
   }
   requestDate = async () => {
-    // const url = `https://www.google.com/`;
     const url = `http://localhost:3000/weather?city_name=${this.props.city_name
       .split(" ")[0]
       .replace(/,/g, "")}&lat=${this.props.lat}&lot=${this.props.lot}`;
