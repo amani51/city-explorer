@@ -4,8 +4,8 @@ import Button from "react-bootstrap/Button";
 class Weather extends React.Component {
   constructor(props) {
     super(props);
-    this.sate = {
-      day1: [],
+    this.state = {
+      day1: NaN,
 
     };
   }
@@ -16,23 +16,38 @@ class Weather extends React.Component {
     try {
       const responseData = await axios.get(url);
       console.log(this.props.city_name
-        .split(" ")[0].replace(/,/g, ""),responseData.data[0]);
-        let x=responseData.data[0]
+        .split(" ")[0].replace(/,/g, ""),responseData.data);
+        
       this.setState({
-        day1: x
+        day1: responseData.data
       });
     } catch {
       console.log("error");
     }
-    console.log("day1",this.state.day1)
+    // console.log("day1",this.state.day1)
   };
 
   render() {
     return (
       <>
         <h2>Weather {this.requestDate}</h2>
-        <p></p>
-{/* {this.state.day1} */}
+        <p>
+          {/* {this.state.day1&&this.state.day1[0].datetime} */}
+          {/* this is conditional rendering */}
+          {this.state.day1&&this.state.day1.map(item =>{
+        return(
+          <div>
+           <p>DataTime:  {item.datetime} </p>
+            <p>Description: {item.description}</p>
+          </div>
+
+        )
+      })
+
+      }
+          
+        </p>
+
         <Button variant="primary" type="submit" onClick={this.requestDate}>
           weather
         </Button>
