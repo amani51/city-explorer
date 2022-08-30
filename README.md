@@ -5,7 +5,7 @@
 **Version**: 1.0.0
 
 ## Overview
-City Explorer: the app is used to display a specific location and its latitude and longitude.
+City Explorer: the app is used to display a specific location and its latitude and longitude. and git 
 
 ## Getting Started
 you only need to write a city that you want it 
