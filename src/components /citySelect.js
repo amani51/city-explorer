@@ -20,9 +20,11 @@ class CityForm extends React.Component {
     let location = event.target.city.value;
     console.log(location);
     let urlLink = `https://us1.locationiq.com/v1/search?key=pk.beb608537885b07487c50d38dce0d845&q=${location}&format=json`;
+   
 
     try {
       let responseData = await axios.get(urlLink);
+      console.log(responseData.data);
       this.setState({
         displayName: responseData.data[0].display_name,
         latitude: responseData.data[0].lat,
