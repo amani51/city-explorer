@@ -49,4 +49,4 @@ this app has been created using React.js
 
     Finish time: 7:30 pm
 
-    Actual time needed to complete:  hour 
+    Actual time needed to complete:  hour  
