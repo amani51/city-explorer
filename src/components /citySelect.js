@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Ratio from "react-bootstrap/Ratio";
 import axios from "axios";
 import Weather from "./weather";
 import Movies from "./movies";
@@ -81,7 +80,7 @@ class CityForm extends React.Component {
   render() {
     return (
       <>
-        <Form onSubmit={(event)=>{this.getData(event)}}>
+        <Form onSubmit={(event)=>{this.getData(event)}} style={{width:"80%",display:"flex",justifyContent:"center","margin-top":"2rem"}}>
           <Form.Group
             className="mb-3"
             controlId="formBasicEmail"
@@ -108,18 +107,25 @@ class CityForm extends React.Component {
               placeholder="Enter a location"
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" style={{
+              width: "8%",
+              display: "flex",
+              justifyContent: "center",
+              "margin-top": "1rem",
+              height:"2.5rem",
+              backgroundColor:"grey",color:"pink",borderColor:"gray"
+            }}>
             Explore!
           </Button>
         </Form>
-        <div>
-          <Card style={{ width: "18rem" }}>
+        <div style={{ width: "30rem","background-color":"rgba(223, 206, 218, 0.7)",display:"flex",justifyContent:"center", marginLeft:"29rem",marginBottom:"7rem"}} >
+          <Card >
             <Card.Img
               variant="top"
               src={`https://maps.locationiq.com/v3/staticmap?key=pk.7aedc85ff3620b0d3b6865ccab5efd25&center=${this.state.lat},${this.state.lot}`}
             />
-            <Card.Body>
-              <Card.Title>{this.state.city_name}</Card.Title>
+            <Card.Body style={{textAlign:"center","align-self":"center","padding-top":"1rem",backgroundColor:"whitesmoke",width:"100%"}}>
+              <Card.Title>{this.state.city_name.split(" ")[0].replace(/,/g, "")}</Card.Title>
               <Card.Text>
                 <p>latitude: {this.state.lat}</p>
                 <p>longitude: {this.state.lot}</p>
