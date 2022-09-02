@@ -6,7 +6,6 @@ class Movies extends React.Component {
     return (
       <>
         <h2>Movies</h2>
-        {this.props.Flag && (
           <p>
             <Row xs={1} md={4} className="g-4">
               {this.props.movies &&
@@ -25,7 +24,6 @@ class Movies extends React.Component {
                 })}
             </Row>
           </p>
-        )}
       </>
     );
   }
