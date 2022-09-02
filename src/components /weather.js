@@ -7,7 +7,6 @@ class Weather extends React.Component {
     return (
       <>
         <h2>Weather</h2>
-        {this.props.Flag && (
           <p>
             <Row xs={1} md={4} className="g-4">
               {this.props.day1 &&
@@ -18,7 +17,6 @@ class Weather extends React.Component {
                 })}
             </Row>
           </p>
-        )}
       </>
     );
   }

@@ -16,6 +16,8 @@ class CityForm extends React.Component {
       mapFlag: false,
       day1: NaN,
       movies: NaN,
+      moviesFlag:false,
+      weatherFlag:false,
     };
   }
   getData = async (event) => {
@@ -33,6 +35,17 @@ class CityForm extends React.Component {
         errorFlag: false,
         mapFlag: true,
       });
+      if (this.state.day1!=NaN){
+        this.setState({
+          weatherFlag:true,
+        })
+      }
+      if (this.state.movies!=NaN){
+        this.setState({
+          moviesFlag:true,
+        })
+      }
+
     } catch {
       this.setState({
         errorFlag: true,
@@ -134,11 +147,11 @@ class CityForm extends React.Component {
           </Card>
         </div>
         {this.state.errorFlag && <p>Location is not available! </p>}
-        {this.state.day1 && (
-          <Weather Flag={this.state.mapFlag} day1={this.state.day1} />
+        {this.state.weatherFlag && (
+          <Weather day1={this.state.day1} />
         )}
-        {this.state.movies && (
-          <Movies Flag={this.state.mapFlag} movies={this.state.movies} />
+        {this.state.moviesFlag && (
+          <Movies movies={this.state.movies} />
         )}
       </>
     );
